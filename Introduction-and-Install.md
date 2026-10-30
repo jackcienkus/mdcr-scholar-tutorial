@@ -96,7 +96,7 @@ A small window should appear with the message “PySide6 is installed and workin
 
 4. Open main.py and run it using that selected interpreter, or run `python main.py` in the VS Code terminal.
 
-7. Troubleshooting:
+5. Troubleshooting:
 - `pip` or Python is not recognized — Try `python3` on macOS or `py` on Windows. Confirm Python is installed, then reopen the terminal.
 - `ModuleNotFoundError: No module named 'PySide6'` — Activate the intended virtual environment, install PySide6 in it, and confirm your editor is using that same interpreter.
 - Permission or access error — Use a virtual environment rather than installing system-wide. Avoid using administrator privileges unless you understand why they are needed.
