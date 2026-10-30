@@ -45,9 +45,6 @@ A pop-up will appear with your text and an "OK" button. Click "OK" to close it a
 
 *Note: if the pop-up does not appear, check the Dock or press Cmd+Tab (macOS) or Alt+Tab (Windows), since it can open behind your editor.*
 
-#### Pop-up Example
-![Screenshot 2026-10-29 at 6.29.29 PM.png](8e8476d1-6daa-4a0e-8e66-555fc6445f1f.png)
-
 #### 3 Main Types using QMessageBox
 - QMessageBox.information(None, "Info", "This is information.")
 - QMessageBox.warning(None, "Warning", "Be careful!")
@@ -92,9 +89,6 @@ In terminal, run: python popup_dialog.py
 
 A pop-up window opens showing your text. Close it with the window's close button.
 
-#### Pop-up Example
-![Screenshot 2026-10-29 at 6.33.03 PM.png](e1caab6d-9c71-47b5-8339-5203cd6ff479.png)
-
 ____
 ### QDialog with TextEdit
 
@@ -126,6 +120,3 @@ dialog.exec() #Shows the dialog and waits until it is closed
 In terminal, run: python popup_textedit.py
 
 A pop-up window opens showing your text. Close it with the window's close button.
-
-#### Pop-up Example
-![Screenshot 2026-10-29 at 6.41.36 PM.png](76ed1239-7724-4d18-bce6-b2a47c8d36d5.png)
