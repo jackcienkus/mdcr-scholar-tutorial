@@ -16,16 +16,27 @@ If the command is not recognized, install Python from the official Python websit
 
 ## 2. Create a project and virtual environment (recommended)
 A virtual environment keeps this project's packages separate from other Python projects.
+
 macOS — Terminal:
+
 mkdir PySide6Project
+
 cd PySide6Project
+
 python3 -m venv .venv
+
 source .venv/bin/activate
+
 Windows — PowerShell:
+
 mkdir PySide6Project
+
 cd PySide6Project
+
 py -m venv .venv
+
 .\.venv\Scripts\Activate.ps1
+
 If PowerShell blocks activation, you can use Command Prompt instead and run .venv\Scripts\activate.bat. You can also install packages by calling the virtual environment's Python directly, without activating it.
 
 
