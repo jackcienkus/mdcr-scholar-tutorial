@@ -6,6 +6,18 @@
 **Dependencies:** PySide6
 
 
+**Authors:** Renee Watson
+
+**Language:** Python
+
+**Tags:** GUI development, Pyside6, Desktop Application, Pop-up Window
+
+**Description:** A short guide on how to create a basic pop-up message box using Pyside6 to display information to a user from Python Script
+
+**Dependencies:** sys, Pyside6
+
+____
+
 ## Objective
 By the end of this section you will be able to make a small window pop up on the screen that displays text
 
