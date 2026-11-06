@@ -1,8 +1,8 @@
 # PySide6 Tutorial Part 4: Distance Conversion Calculator
-**Author:** Anthony Kosinski 
-**Language:** Python
-**Tags:** Gooey, Interface, Software Application, Qt
-**Description:** How to build a distance converter application with PySide6
+**Author:** Anthony Kosinski <br>
+**Language:** Python<br>
+**Tags:** Gooey, Interface, Software Application, Qt<br>
+**Description:** How to build a distance converter application with PySide6<br>
 **Dependencies:** PySide6
 
 In this last tutorial, we will be putting together the widgets we've learned about to create a simple conversion calculator for different measurement types.
@@ -130,7 +130,7 @@ self.output_box.setReadOnly(True)  # Prevents the user from typing inside the ou
 self.output_box.setPlaceholderText("Results will show up here...")
 ```
 
-**Dropdown Selection Boxes**
+**Dropdown Selection Boxes**<br>
 Next we'll need our selection boxes for both our input and output. It'll be easier to create them together, as we'll need to populate both with the same options. So let's create two QComboBox objects, and using our dictionary from the beginning, we'll pull the key names and corresponding values to put into both QComboBox objects.
 ```
 self.box_from = QComboBox()
