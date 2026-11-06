@@ -18,7 +18,7 @@ For our conversion calculator, we will need:
  * Layout Formatter
 
 For these, we will start by importing:<br>
-```
+```python
 import sys
 from PySide6.QtWidgets import QVBoxLayout, QWidget, QLineEdit, QLabel, QComboBox, QPushButton, QApplication, QMainWindow
 from PySide6.QtGui import QDoubleValidator
@@ -26,7 +26,7 @@ from PySide6.QtGui import QDoubleValidator
 
 Since we are creating a conversion calculator for distances, we also need a dictionary which contains measurements for each distance. We will do these measurements relative to meters to give us an easy baseline to use. We will also use this dictionary to populate a drop-down box for our application.
 
-```
+```python
 # dictionary for distances (baseline set in meters)
 units = {
     # metric
@@ -45,7 +45,7 @@ Now that we have the imports and the data we need set up, we just need to make t
 
 ### 2. Basic Application
 We are going to set up a class to contain our application by writing the following:<br>
-```
+```python
 class DistanceConverter(QWidget):
     def __init__(self):
         super().__init__()
@@ -53,7 +53,7 @@ class DistanceConverter(QWidget):
 <br>We need to super() this class so we can inherit the QWidget class for our application. We will be doing most of our application building in this init function for simplicity, but you can also split each component into separate functions if preferred.
 
 Within the __init__ function, let's set up our window. We'll keep the window fairly small and set a relevant title for our application.
-```
+```python
         self.setWindowTitle("Distance Converter") # this text will appear at the top of the window
         self.resize(300, 100)
 ```
@@ -64,7 +64,7 @@ Now our application will open a basic window named "Distance Converter", but we 
 #### 3.1 Setting up the Class<br>
 For our application, we'll make a class by inheriting from the QWidget class. We'll call our class DistanceConverter.
 
-```
+```python
 class DistanceConverter(QWidget):
     def __init__(self):
         super().__init__()
@@ -75,7 +75,7 @@ class DistanceConverter(QWidget):
 
 This will open our basic window, so let's also have a main function (not in the class) which will run it properly when the script is called.
 
-```
+```python
 if __name__ == "__main__":
     app = QApplication(sys.argv)
 
@@ -101,7 +101,7 @@ In our program, we'll need these things for it to function:
 Starting with the labels, we'll create four with QLabel. Note that currently we are just initalizing the labels, not placing them yet, so the initialization order won't matter. These objects won't actually appear in the window until we add them to a layout which we will do in 3.3.
 
 We can use a string to add text that we want shown with our QLabel:<br>
-```
+```python
 input_label = QLabel("Input distance to convert here")
 output_label = QLabel("Output distance will be shown here")
 top_label = QLabel("Convert from...")
@@ -112,19 +112,19 @@ Note I didn't make these labels "self" objects, since they aren't used in any ou
 
 **Input Box**<br>
 Next we'll use QLineEdit to create an input box. We can also give it placeholder text for when there is no input, which will help guide the user as to where to type.
-```
+```python
 self.input_box = QLineEdit()
 self.input_box.setPlaceholderText("Type numbers here...")
 ```
 Having just an input box alone though means someone could type anything in there which can cause problems, we can remedy this by ensuring only numbers can be entered with a QDoubleValidator object which we attach to the input box.
-```
+```python
 numerical_validator = QDoubleValidator() # create validator for only numerics so no non-numeric characters can be entered
 self.input_box.setValidator(numerical_validator)
 ```
 
 **Output Box**<br>
 Now our output box will also be a QLineEdit box, but we'll ensure it can't be edited by setting it to read only. We can also add more placeholder text for further user clarification
-```
+```python
 self.output_box = QTextEdit()
 self.output_box.setReadOnly(True)  # Prevents the user from typing inside the output box
 self.output_box.setPlaceholderText("Results will show up here...")
@@ -132,7 +132,7 @@ self.output_box.setPlaceholderText("Results will show up here...")
 
 **Dropdown Selection Boxes**<br>
 Next we'll need our selection boxes for both our input and output. It'll be easier to create them together, as we'll need to populate both with the same options. So let's create two QComboBox objects, and using our dictionary from the beginning, we'll pull the key names and corresponding values to put into both QComboBox objects.
-```
+```python
 self.box_from = QComboBox()
 self.box_to = QComboBox()
 
@@ -143,7 +143,7 @@ for unit_name, meter_value in units.items():
 ```
 
 We can also set a default option for both that the program will default to when opened, which just makes our program a bit nicer to use. Just need to make sure the text matches the key's text exactly!
-```
+```python
 self.box_from.setCurrentText("Kilometers (km)")
 self.box_to.setCurrentText("Miles (mi)")
 ```
@@ -151,7 +151,7 @@ self.box_to.setCurrentText("Miles (mi)")
 **Conversion Button**<br>
 All that is left is our conversion button, which we left for last since it will require all of our previous objects to work.<br>
 Adding a QPushButton is quite straightforward, and we can specify what text appears on the button with a string.
-```
+```python
 button = QPushButton("Convert")
 ```
 However to make the button actually do something, we'll need to write a function for it. Let's create a new function in our DistanceConverter class and we'll name it "calculate_button_click", quite creative I know.
@@ -163,7 +163,7 @@ For our function, we'll need to do these things when our button is clicked:
 4. Write the result to be displayed on the output text box.
 
 The function ends up looking like this:
-```
+```python
 def calculate_button_click(self):
     text = self.input_box.text()
     if not text: # in the case of no input
@@ -186,7 +186,7 @@ def calculate_button_click(self):
 On top of what was mentioned, we also ensure that the text is not blank at the beginning. Since the text is pulled from an input box, it is actually pulled as a string which requires a conversion to float as well. We also round the result to the fourth decimal place, but of course this can be changed.
 
 So now we have our function, we can go back to where we first initialized our button and connect it to our function.
-```
+```python
 button.clicked.connect(self.calculate_button_click)
 ```
 Now when the button is clicked, it will call the calculation function.
@@ -197,13 +197,13 @@ Great! We have all of these objects, but none of them actually show up? That's w
 For our purposes, a simple layout will do just fine. We'll be using QVBoxLayout, which is a vertical layout that has all objects stacked on one another. The order in which we add objects to the box layout does matter, so we'll need to keep note of that.
 
 Initalizing the layout is just like any other object.
-```
+```python
 layout = QVBoxLayout()
 ```
 
 Then, we can add to the layout in the order we want elements to appear on the window from top to bottom.
 
-```
+```python
 layout.addWidget(input_label) # Will be an element at the top
 layout.addWidget(self.input_box)
 layout.addWidget(top_label)
@@ -216,7 +216,7 @@ layout.addWidget(button) # Will be an element at the bottom
 ```
 
 Then since our class is a QWidget object, we just set the layout to be our new layout object.
-```
+```python
 self.setLayout(layout)
 ```
 
