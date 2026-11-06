@@ -1,4 +1,10 @@
-# Section 2: How To Get a Pop-up Widget With Text
+# Part 1: How To Get a Pop-up Widget With Text
+**Author:** Renee Watson <br>
+**Language:** Python<br>
+**Tags:** Gooey, Interface, Software Application, Qt<br>
+**Description:** How to get a Pop-up Widget in PySide6<br>
+**Dependencies:** PySide6
+
 
 ## Objective
 By the end of this section you will be able to make a small window pop up on the screen that displays text

@@ -1,4 +1,10 @@
 # Part 3 - Input Box Widget
+**Author:** Jack Cienkus <br>
+**Language:** Python<br>
+**Tags:** Gooey, Interface, Software Application, Qt<br>
+**Description:** Input Boxes in PySide6<br>
+**Dependencies:** PySide6
+
 
 To create an input box with PySide6, we'll use the `QLineEdit()` object. 
 The code in `input-box-widget.py` creates a simple, one-line text editing box
